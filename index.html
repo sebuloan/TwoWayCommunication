@@ -44,6 +44,25 @@
       </div>
     </div>
     <script>
+
+        // Make sure this function is exposed to Unity as early as possible
+      function sendMessageToParent(messageType) {
+        // Send a message to the parent window (home.html)
+        console.log("Message came from Unity to index.html:", messageType);
+        window.parent.postMessage({ type: messageType }, '*');
+      }
+
+ function receiveDataFromUnity(jsonResponse) {
+    // Parse the JSON string into a JavaScript object
+    const responseData = JSON.parse(jsonResponse);
+    
+    // Now responseData is an object, and you can access its properties
+    console.log("Message came from Unity to index.html:", responseData);
+     // The timestamp string
+    
+    // Example: Send data to the parent window
+    window.parent.postMessage({ type: 'UnityData', data: responseData }, '*');
+}
       var container = document.querySelector("#unity-container");
       var canvas = document.querySelector("#unity-canvas");
       var loadingBar = document.querySelector("#unity-loading-bar");
