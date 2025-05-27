@@ -23,7 +23,7 @@
       }
     </style>
   </head>
-  <body style="text-align: center; padding: 0; border: 0; margin: 0;">
+  <body>
     <canvas id="unity-canvas" ></canvas>
     <script src="Build/ActiveSchematicsBuild.loader.js"></script>
     <script>
@@ -61,6 +61,7 @@
         document.body.style.textAlign = "left";
       }
 
+       var unityInstance = null;
       createUnityInstance(document.querySelector("#unity-canvas"), {
         dataUrl: "Build/ActiveSchematicsBuild.data",
         frameworkUrl: "Build/ActiveSchematicsBuild.framework.js",
